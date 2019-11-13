@@ -9,8 +9,8 @@ networks:
     
 services:
 
-### nuxt-sns ##############################################
-  nuxt-sns:
+### nuxt ##############################################
+  nuxt-pc:
     build:
       context: ./nuxt
     restart: always
@@ -24,8 +24,8 @@ services:
       - frontend
       - backend
 
-### nuxt-sns-mobile ##############################################
-  nuxt-sns-mobile:
+### nuxt-mobile ##############################################
+  nuxt-mobile:
     build:
       context: ./nuxt-mobile
     restart: always
