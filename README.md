@@ -1,5 +1,7 @@
 # docker-compose-nuxt
 
+node.js docker容器化挂载
+
 ```bash
 cp .env.example .env
 ```
