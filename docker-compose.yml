@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  frontend:
+    driver: ${NETWORKS_DRIVER}
+  backend:
+    driver: ${NETWORKS_DRIVER}
+
+    
+services:
+
+### nuxt-sns ##############################################
+  nuxt-sns:
+    build:
+      context: ./nuxt
+    restart: always
+    environment:
+      - TZ=${WORKSPACE_TIMEZONE}
+    volumes:
+      - ${DATA_PATH_HOST}/prod-xxx-website:/data/app
+    ports:
+      - "3333:3355"
+    networks:
+      - frontend
+      - backend
+
+### nuxt-sns-mobile ##############################################
+  nuxt-sns-mobile:
+    build:
+      context: ./nuxt-mobile
+    restart: always
+    environment:
+      - TZ=${WORKSPACE_TIMEZONE}
+    volumes:
+      - ${DATA_PATH_HOST}:/data/app
+    ports:
+      - "3334:3334"
+    networks:
+      - frontend
+      - backend
