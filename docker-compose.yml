@@ -65,3 +65,6 @@ services:
       - ./data/rabbitmq:/var/lib/rabbitmq
 #      - /etc/hosts:/etc/hosts
     restart: always
+    networks:
+      - frontend
+      - backend
