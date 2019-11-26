@@ -38,3 +38,30 @@ services:
     networks:
       - frontend
       - backend
+      
+### rabbitmq ################################################ 登录容器请执行:rabbitmq-plugins enable rabbitmq_management 才可>使用WEB管理页面"
+  rabbitmq:
+    image: rabbitmq:3.6.9-management
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "5672:5672"
+      - "15672:15672"
+      - "25672:25672"
+    hostname: rmq_node3
+    environment:
+      RABBITMQ_DEFAULT_VHOST: /
+      RABBITMQ_DEFAULT_USER: xxxuserxxxx
+      RABBITMQ_DEFAULT_PASS: xxxpasswdxxxx
+      RABBITMQ_LOGS: /var/lib/rabbitmq/rabbitmq.log
+      RABBITMQ_SASL_LOGS: /var/lib/rabbitmq/rabbitmq-sasl.log
+      RABBITMQ_ERLANG_COOKIE: LZJADKXKLULIXFKAALGX 
+      TZ: Asia/Shanghai
+    extra_hosts:
+      - "rmq_node1:192.168.101.106"
+      - "rmq_node2:192.168.101.156"
+#      - "rmq_node3:192.168.101.206"
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq
+#      - /etc/hosts:/etc/hosts
+    restart: always
