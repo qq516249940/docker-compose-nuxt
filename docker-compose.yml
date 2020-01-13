@@ -41,7 +41,8 @@ services:
       
 ### rabbitmq ################################################ 登录容器请执行:rabbitmq-plugins enable rabbitmq_management 才可>使用WEB管理页面"
   rabbitmq:
-    image: rabbitmq:3.6.9-management
+    build:
+      context: ./rabbitmq
     ports:
       - "4369:4369"
       - "5671:5671"
