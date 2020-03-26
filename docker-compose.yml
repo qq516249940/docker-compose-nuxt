@@ -58,6 +58,7 @@ services:
       RABBITMQ_SASL_LOGS: /var/lib/rabbitmq/rabbitmq-sasl.log
       RABBITMQ_ERLANG_COOKIE: LZJADKXKLULIXFKAALGX 
       TZ: Asia/Shanghai
+      RABBITMQ_VM_MEMORY_HIGH_WATERMARK: 0.8
     extra_hosts:
       - "rmq_node1:192.168.101.106"
       - "rmq_node2:192.168.101.156"
